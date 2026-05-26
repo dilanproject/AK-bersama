@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Undangan Pernikahan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Alice:wght@300&display=swap" rel="stylesheet">
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Alice', serif;
+    }
+
+    body {
+      background:
+        linear-gradient(rgba(0,0,0,0.20), rgba(0,0,0,0.10)),
+        url("bg.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #ffe7c6;
+      padding: 200px;
+      width: 100%;
+      max-width: 420px;
+    }
+
+    h1 {
+      font-size: 1em;
+      font-weight: 500;
+      margin-bottom: 75px;
+    }
+
+    h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.8em;
+      margin: 10px 0 20px;
+    }
+
+    #sapaan {
+      font-size: 1em;
+      margin-top: 440px;
+    }
+
+    #tamu {
+      font-size: 1em;
+      font-weight: 200px;
+      margin-top: 2px;
+    }
+
+    button {
+      padding: 10px 40px;
+      font-size: 1em;
+      border: none;
+      border-radius: 100px;
+      cursor: pointer;
+      background: maroon;
+      color: #ffe7c6;
+      margin-top: 30px;
+    }
+
+    .note {
+      font-size: 0.75em;
+      margin-top: 15px;
+      opacity: 0.85;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="content">
+
+    <div id="sapaan">dear :</div>
+    <div id="tamu">Tamu Undangan</div>
+
+    <button onclick="bukaUndangan()">Buka Undangan</button>
+
+    <div class="note">
+      Mohon maaf bila ada kesalahan penulisan nama/gelar
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const namaTamu = params.get("to") || "Tamu Undangan";
+    document.getElementById("tamu").textContent = decodeURIComponent(namaTamu);
+
+    function bukaUndangan() {
+      const linkCanva =
+        "https://sertifikat-teral.my.canva.site/bersama-satu-project";
+      window.location.href =
+        linkCanva + "?to=" + encodeURIComponent(namaTamu);
+    }
+  </script>
+
+</body>
+</html>
